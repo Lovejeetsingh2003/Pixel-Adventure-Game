@@ -13,26 +13,30 @@ class PixelAdventure extends FlameGame
   late final CameraComponent cam;
   Player player = Player(character: 'Mask Dude');
   late JoystickComponent joystick;
-  bool showJoystick = true;
+  bool showJoystick = false;
 
   @override
   FutureOr<void> onLoad() async {
     // it will load all the images in chache memmory so it takes some long time if the images are large in number.
 
     await images.loadAllImages();
+    if (showJoystick) {
+      addJoystick();
+    }
     final level = Level(
       levelName: 'level_01',
       player: player,
     );
 
     cam = CameraComponent.withFixedResolution(
-        world: level, width: 640, height: 360);
+      world: level,
+      width: 640,
+      height: 360,
+    );
     cam.viewfinder.anchor = Anchor.topLeft;
 
     addAll([cam, level]);
-    if (showJoystick) {
-      addJoystick();
-    }
+
     return super.onLoad();
   }
 
@@ -46,6 +50,8 @@ class PixelAdventure extends FlameGame
 
   void addJoystick() {
     joystick = JoystickComponent(
+      priority: 1,
+      margin: const EdgeInsets.only(left: 32, bottom: 32),
       knob: SpriteComponent(
         sprite: Sprite(
           images.fromCache('HUD/Knob.png'),
@@ -56,8 +62,6 @@ class PixelAdventure extends FlameGame
           images.fromCache('HUD/Joystick.png'),
         ),
       ),
-      margin: const EdgeInsets.only(left: 32, bottom: 32),
-      priority: 1,
     );
     add(joystick);
   }
