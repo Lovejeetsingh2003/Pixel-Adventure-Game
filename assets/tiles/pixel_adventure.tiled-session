@@ -9,10 +9,22 @@
     "fileStates": {
         "level_01.tmx": {
             "scale": 1.4249999999999998,
-            "selectedLayer": 0,
+            "selectedLayer": 1,
             "viewCenter": {
-                "x": 388.7719298245614,
-                "y": 189.82456140350877
+                "x": 304.2105263157895,
+                "y": 303.5087719298246
+            }
+        },
+        "level_02.tmx": {
+            "expandedObjectLayers": [
+                2,
+                3
+            ],
+            "scale": 1.473984375,
+            "selectedLayer": 1,
+            "viewCenter": {
+                "x": 305.63417607462765,
+                "y": 235.07711877882016
             }
         },
         "pixel_adventure.tsx": {
@@ -31,6 +43,7 @@
         "level_01.tmx"
     ],
     "project": "pixel_adventure.tiled-project",
+    "property.type": "bool",
     "recentFiles": [
         "pixel_adventure.tsx",
         "level_01.tmx"
